@@ -1,0 +1,112 @@
+<c-row ngPreserveWhitespaces>
+    <c-col xs="12">
+    </c-col>
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-header>
+          <strong>CREATE EMPLOYEE</strong> 
+        </c-card-header>
+        <c-card-body>
+          <c-nav variant="tabs">
+              <c-nav-item>
+                <a [cTabContent]="tabContent1" [routerLink] [tabPaneIdx]="0" cNavLink>
+                  <svg cIcon class="me-2" name="cilHome"></svg>
+                  General
+                </a>
+              </c-nav-item>
+              <c-nav-item>
+                <a [cTabContent]="tabContent1" [routerLink] [tabPaneIdx]="1" cNavLink>
+                  <svg cIcon class="me-2" name="cilUser"></svg>
+                  Profile
+                </a>
+              </c-nav-item>
+              <c-nav-item>
+                <a [cTabContent]="tabContent1" [routerLink] [tabPaneIdx]="2" cNavLink [disabled]="tabContent1.activeTabPaneIdx < 1">
+                  <svg cIcon class="me-2" name="cilCode"></svg>
+                  Contact
+                </a>
+              </c-nav-item>
+            </c-nav>
+            <c-tab-content #tabContent1="cTabContent" [activeTabPaneIdx]="0" cRounded="bottom">
+              <c-tab-pane class="p-3 preview" role="tabpanel">
+                <form #customStylesForm="ngForm"
+                (ngSubmit)="onSubmit1()"
+                [validated]="customStylesValidated"
+                cForm
+                class="row g-3 needs-validation"
+          >
+            <c-col md="4">
+              <label cLabel for="employee_code">{{'EmployeeCode'| translate }}<span class="danger">*</span></label>
+              <input cFormControl id="employee_code" required type="text" value="Mark" />
+              <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+            </c-col>
+            <c-col md="4">
+              <label cLabel for="validationCustom02">name</label>
+              <input cFormControl id="validationCustom02" required type="text" value="Otto" />
+              <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+            </c-col>
+            <c-col md="4">
+              <label cLabel for="validationCustomUsername">Username</label>
+              <c-input-group class="has-validation">
+                <span cInputGroupText id="inputGroupPrepend">@</span>
+                <input aria-describedby="inputGroupPrepend"
+                       cFormControl
+                       id="validationCustomUsername"
+                       required
+                       type="text"
+                />
+                <c-form-feedback [valid]="false">Please choose a username.</c-form-feedback>
+              </c-input-group>
+            </c-col>
+            <c-col md="6">
+              <label cLabel for="validationCustom03">City</label>
+              <input cFormControl id="validationCustom03" required type="text" />
+              <c-form-feedback [valid]="false">Please provide a valid city.</c-form-feedback>
+            </c-col>
+            <c-col md="3">
+              <label cLabel for="validationCustom04">State</label>
+              <select cSelect id="validationCustom04" required>
+                <option value="">Choose...</option>
+                <option>...</option>
+              </select>
+              <c-form-feedback [valid]="false">Please provide a valid State.</c-form-feedback>
+            </c-col>
+            <c-col md="3">
+              <label cLabel for="validationCustom05">Zip code</label>
+              <input cFormControl id="validationCustom05" required type="text" />
+              <c-form-feedback [valid]="false">Please provide a valid zip.</c-form-feedback>
+            </c-col>
+            <c-col xs="12">
+              <c-form-check>
+                <input cFormCheckInput id="invalidCheck" name="invalidCheck" required type="checkbox" />
+                <label cFormCheckLabel for="invalidCheck">Agree to terms and conditions</label>
+              </c-form-check>
+              <c-form-feedback [valid]="false">You must agree before submitting.</c-form-feedback>
+            </c-col>
+            <c-col xs="12">
+              <button cButton class="me-1" color="primary" type="submit">
+                Submit form
+              </button>
+              <button (click)="onReset1()" cButton color="secondary" type="reset">
+                Reset
+              </button>
+            </c-col>
+          </form>
+              </c-tab-pane>
+              <c-tab-pane class="p-3 preview" role="tabpanel">
+                This is some placeholder content the <strong>Profile</strong> tab's associated content. Clicking another
+                tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the
+                content visibility and styling. You can use it with tabs, pills, and any other .nav-powered navigation.
+              </c-tab-pane>
+              <c-tab-pane class="p-3 preview" role="tabpanel" *ngIf="tabContent1.activeTabPaneIdx > 0">
+                This is some placeholder content the <strong>Contact</strong> tab's associated content. Clicking another
+                tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the
+                content visibility and styling. You can use it with tabs, pills, and any other .nav-powered navigation.
+              </c-tab-pane>
+            </c-tab-content>
+         
+        </c-card-body>
+      </c-card>
+    </c-col>
+  </c-row>
+  
